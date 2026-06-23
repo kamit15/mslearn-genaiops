@@ -101,6 +101,9 @@ def run_batch_tests(experiment_name):
             }],
         )
 
+        # Wait 60 seconds before making the request
+        time.sleep(60)
+
         # Ask the agent to respond using the Responses API with agent_reference
         response = openai_client.responses.create(
             conversation=conversation.id,
@@ -150,6 +153,7 @@ def run_batch_tests(experiment_name):
 
 if __name__ == "__main__":
     import sys
+    import time
     
     if len(sys.argv) != 2:
         print("Usage: python run-batch-tests.py <experiment-name>")
